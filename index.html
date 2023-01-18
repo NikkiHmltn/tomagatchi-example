@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomagatchi Time</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/app.js"></script>
+</head>
+<body>
+    <header>
+        <div id="music-controls">
+            <audio autoplay controls loop>
+                <source src='./assets/music/Smooth Sailing.mp3' type="audio/mpeg">
+                Your browser does not support this audio. 
+            </audio>
+        </div>
+    </header>
+    <section>
+        <aside id="">
+             <div id="player-ship"></div>
+        </aside>
+        <aside>
+            <div>
+                <fieldset>
+                    <legend>Orders, Captain?</legend>
+                    <div id="button-container">
+                        <input type="button" value="Resupply Ship" />
+                        <input type="button" value="Take Shoreleave" />
+                        <input type="button" value="Do a Barrel Roll" />
+                    </div>
+                </fieldset>
+            </div>
+        </aside>
+    </section>
+</body>
+</html>

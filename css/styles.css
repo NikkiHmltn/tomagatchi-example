@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html {
+    background-image: url(../assets/images/Purple_Nebula_01-1024x1024.png);
+    animation: fadeStars 7s infinite;
+
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    
+}
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#player-ship {
+    background-image: url(../assets/images/clipart2761027.png);
+    height: 350px;
+    width: 350px;
+    margin-top: 10%;
+    margin-left: 15%;
+    animation: hoverShip 4s infinite;
+}
+
+fieldset {
+    border-color: aqua;
+    border-radius: 10%;
+    box-shadow: 0 0 10px aqua;
+    background-color: rgba(158, 152, 152, 0.25) ;
+}
+legend {
+    color: white;
+    font-size: 30px;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: rgb(44, 38, 38);
+    letter-spacing: -.5px;
+    font-family: 'Press Start 2P', cursive;
+}
+#button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    height: 150px;
+}
+
+/* KEYFRAMES */
+
+@keyframes fadeStars {
+    0% {
+        filter: brightness(1.1);
+    }
+    50% {
+        filter: brightness(1.80);
+    }
+    100% {
+        filter: brightness(1.1);
+    }
+}
+
+@keyframes hoverShip {
+    0% {
+        margin-top: 10%;
+    }
+    50% {
+        margin-top: 15%;
+    }
+    100% {
+        margin-top: 10%;
+    }
+}
