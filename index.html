@@ -25,11 +25,20 @@
             <div>
                 <fieldset>
                     <legend>Orders, Captain?</legend>
-                    <div id="button-container">
-                        <input type="button" value="Resupply Ship" />
-                        <input type="button" value="Take Shoreleave" />
-                        <input type="button" value="Do a Barrel Roll" />
+                    <div id="fieldset-container">
+                        <div id="button-container">
+                            <input type="button" id="resupply" value="Resupply Ship" />
+                            <audio id="shipSound" src="./assets/music/ufo-flies-away-101315.mp3" type="audio/mpeg"></audio>
+                            <input type="button" id="shoreleave" value="Take Shoreleave" />
+                            <input type="button" id="barrelRoll" value="Do a Barrel Roll" />
+                        </div>
+                        <div id="stat-container">
+                            <div id="supply-stat">SUPPLIES</div> 
+                            <div id="rest-stat">REST</div>    
+                            <div id="entertainment-stat">ENTERTAINMENT</div>
+                        </div>
                     </div>
+
                 </fieldset>
             </div>
         </aside>

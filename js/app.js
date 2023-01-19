@@ -1,4 +1,20 @@
-console.log("sanity check")
+// console.log("sanity check")
+
+// DOM VARIABLES // 
+
+//buttons
+let supplyBtn = document.getElementById('resupply')
+let shoreBtn = document.getElementById('shoreleave')
+let rollBtn = document.getElementById('barrelRoll')
+//ship
+let playerShip = document.getElementById('player-ship')
+let shipAudio = document.getElementById('shipSound')
+//status bars
+let supplyBar = document.getElementById('supply-stat')
+let restBar = document.getElementById('rest-stat')
+let funBar = document.getElementById('entertainment-stat')
+
+
 
 class TomaShip {
     //Ship has 3 types of resources
@@ -23,15 +39,25 @@ class TomaShip {
     }
 
     addSupplies(){
-        this.supplies += 5
+        if(this.supplies < 70) {
+            this.supplies += 5
+            this.animateStatInc()
+        } else {return} 
+        
     }
 
     addRest(){
-        this.rest += 3
+        if(this.rest < 20) {
+            this.rest += 3
+            this.animateStatInc()
+        } else {return}
     }
 
     addEntertainment() {
-        this.entertainment += 4
+        if(this.entertainment < 70) {
+            this.entertainment += 3
+            this.animateRoll()
+        } else {return}
     }
 
     startTimers(){
@@ -40,12 +66,14 @@ class TomaShip {
     }
 
     startGame(){
-        //prompt the user to enter the ship's name
-            //this.setname(userInput)
+        let shipName = prompt("What is the name of your ship, Captain?")
+        this.setName(shipName)
     }
 
     displayVitals(){
-        //Manipulate DOM to reflect class resource changes
+        supplyBar.innerText = this.supplies
+        restBar.innerText = this.rest
+        funBar.innerText = this.entertainment
     }
 
     checkLoss(){
@@ -53,16 +81,38 @@ class TomaShip {
         //If age === 120, GAME OVER
     }
 
-    
+    animateStatInc(){
+        playerShip.classList.add('animateStatInc')
+        shipAudio.play()
+        // RESET ANIMATIONS AFTER COMPLETION // 
+        playerShip.addEventListener('animationend', ()=> {playerShip.classList.remove('animateStatInc')})
+    }
+
+    animateRoll(){
+        playerShip.classList.add('animateRoll')
+        shipAudio.play()
+        // RESET ANIMATIONS AFTER COMPLETION // 
+        playerShip.addEventListener('animationend', ()=> {playerShip.classList.remove('animateRoll')})
+    }
 
 }
-let timer = 0
+
+let ship = new TomaShip()
+ship.startGame()
+
+// let timer = 0
 //SET INTERVAL HERE TO START THE GAME
-setInterval(() => {
-    timer += 1
-    console.log(timer)
+// setInterval(() => {
+//     timer += 1
+//     console.log(timer)
     
-},1000)
+// },1000)
 
 //if timer is 120 //clearInterval() and gameends if no winner
+
+// DOM EVENTS // 
+supplyBtn.addEventListener('click', ship.addSupplies.bind(ship))
+shoreBtn.addEventListener('click', ship.addRest.bind(ship))
+rollBtn.addEventListener('click', ship.addEntertainment.bind(ship))
+
 
