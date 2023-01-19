@@ -44,7 +44,8 @@ class TomaShip {
     }
 
     addSupplies(){
-        if(this.supplies < 70) {
+        if(this.supplies + 5 > 30){this.supplies = 30}
+        if(this.supplies < 30) {
             this.supplies += 5
             this.animateStatInc()
         } else {return} 
@@ -52,6 +53,8 @@ class TomaShip {
     }
 
     addRest(){
+        if(this.rest + 3 > 20){this.rest = 20}
+
         if(this.rest < 20) {
             this.rest += 3
             this.animateStatInc()
@@ -59,7 +62,9 @@ class TomaShip {
     }
 
     addEntertainment() {
-        if(this.entertainment < 70) {
+        if(this.entertainment + 3 > 25){this.entertainment = 25}
+
+        if(this.entertainment < 25) {
             this.entertainment += 3
             this.animateRoll()
         } else {return}
@@ -78,7 +83,7 @@ class TomaShip {
         this.funTimer = setInterval(()=>{
             this.entertainment -= 2
 
-        }, 3500)
+        }, 2500)
     }
 
     startGame(){
