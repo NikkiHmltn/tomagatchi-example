@@ -15,7 +15,6 @@ let restBar = document.getElementById('rest-stat')
 let funBar = document.getElementById('entertainment-stat')
 
 
-
 class TomaShip {
     //Ship has 3 types of resources
     constructor(name, age=0, supplies=30, rest=20, entertainment=25){

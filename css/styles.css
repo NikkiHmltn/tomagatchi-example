@@ -26,10 +26,12 @@ section {
 }
 
 fieldset {
+    padding: 1% 1% 1% 10%;
+    width: 600px;
     border-color: aqua;
     border-radius: 10%;
     box-shadow: 0 0 10px aqua;
-    background-color: rgba(158, 152, 152, 0.25) ;
+    background-color: rgba(158, 152, 152, 0.25);
 }
 
 #fieldset-container {
@@ -40,12 +42,12 @@ fieldset {
 
 input[type='button'] {
     height: 50px;
-    padding: 4%;
-    margin: 4%;
+    padding: 3%;
+    margin: 5%;
     font-size: 16px;
     font-weight: 500;
     font-family: 'Press Start 2P', cursive;
-    box-shadow: 5px 5px black;
+    box-shadow: 5px 4px black;
 }
 
 input[type='button']:hover {
@@ -55,16 +57,21 @@ input[type='button']:hover {
 
 #stat-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
+    width: 50%;
 }
 
-#stat-container > div {
+
+.statbar{
     width: 200px;
     height: 50px;
-    background-color: white;
+    background-color: green;
     border: 2px solid green;
-    margin: 4%;
+    margin: 3%;
+    box-shadow: 0 0 10px green;
+    border-radius: 5%;
+
 }
 
 legend {
@@ -80,7 +87,7 @@ legend {
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    width: 100%;
+    width: 50%;
     height: 150px;
 }
 
