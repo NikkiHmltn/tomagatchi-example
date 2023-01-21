@@ -197,7 +197,7 @@ class TomaShip {
         if(this.age >= 30 && this.age <= 75){
             playerShip.style.filter = "contrast(5)"
         }
-        if(this.age > 7 && this.age < 12){
+        if(this.age > 75 && this.age < 120){
             playerShip.style.filter = "invert(1)"
         }
     }
@@ -211,8 +211,8 @@ class TomaShip {
     }
 
     checkLoss(){
-        //If entertainment|sleep|supply === 0, GAME OVER
-        //If age === 120, GAME OVER
+        //If entertainment|sleep|supply === 0, GAME OVER - WIN
+        //If age === 120, GAME OVER - WIN
         if(this.entertainment <= 0 || this.rest <= 0 || this.supplies <= 0){
             displayLossMsg()
             return true;
