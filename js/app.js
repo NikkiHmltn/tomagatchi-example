@@ -41,23 +41,17 @@ class TomaShip {
         this.rest = rest //max 20
         this.entertainment = entertainment //max 25
         this.gameover = true;
+        this.win = false;
+        this.loss = false;
         this.supplyTimer;
         this.restTimer;
         this.funTimer;
+        this.ageTimer;
     }
 
     setName(){
         let shipName = prompt("What is the name of your ship, Captain?")
-        nameBanner.innerText = `SS ${shipName}`   
-    }
-
-    incAge(){
-        if(this.age >= 30 && this.age <= 75){console.log("30-75")}//transform ship
-        if(this.age > 75 && this.age < 120){console.log("76 - 119")}//transform ship}
-        if(this.age === 120) {
-            console.log("120")
-            // ship dies
-        }
+        nameBanner.innerText = `SS ${shipName.toUpperCase()}`   
     }
 
     addSupplies(){
@@ -199,10 +193,22 @@ class TomaShip {
         }
     }
 
+    checkAge(){
+        if(this.age >= 30 && this.age <= 75){
+            console.log("30-75") 
+        }//transform ship
+        if(this.age > 75 && this.age < 120){console.log("76 - 119")}//transform ship}
+        if(this.age === 12) {
+            console.log("120")
+
+        }
+    }
+
     displayVitals(){
         this.checkSupplies()
         this.checkRest()
         this.checkFun()
+        this.checkAge()
         shipAge.innerText = `${this.age}`
     }
 
@@ -210,8 +216,11 @@ class TomaShip {
         //If entertainment|sleep|supply === 0, GAME OVER
         //If age === 120, GAME OVER
         if(this.entertainment <= 0 || this.rest <= 0 || this.supplies <= 0){
-            console.log("GAME OVER")
-            return true
+            displayLossMsg()
+            return true;
+        } else if (this.age >= 120) {
+            displayWinMsg()
+            return true;
         }
     }
 
@@ -246,37 +255,37 @@ const hideInstructions = () => {
     gameArea.classList.remove('is-hidden')
 }
 
+const displayLossMsg = () => {
+    ship.loss = true;
+    if(ship.loss){
+        alert(":( So Long Space Cowboy... ")
+    }
+    ship.loss = false;
+}
+
+const displayWinMsg = () => {
+    ship.win = true;
+    if(ship.win){
+        alert("Congratulations! Your cruiser has reached the end of it's legally allowed user consumption contract and will now be impounded. Have a nice day!")
+    }
+    ship.win = false;
+}
+
 let ship = new TomaShip()
 ship.setName()
-
-let timer = 0
-//SET INTERVAL HERE TO START THE GAME
-const timerInt = setInterval(() => {
-    timer += 1
-},1000)
 
 //CONSTANTLY CHECKS FOR GAME STATUS UPDATES
 const checkGameStats = setInterval(()=>{
     ship.displayVitals()
-    if(timer >= 120){
-        //stop the game
-        ship.gameover = true;
-        ship.endGame(timerInt)
-        ship.endGame(checkGameStats)
-        ship.endGame(ship.supplyTimer)
-        ship.endGame(ship.restTimer)
-        ship.endGame(ship.funTimer)
-    }
     if(ship.checkLoss()){
         ship.gameover = true
-        ship.endGame(timerInt)
         ship.endGame(checkGameStats)
         ship.endGame(ship.supplyTimer)
         ship.endGame(ship.restTimer)
         ship.endGame(ship.funTimer)
+        ship.endGame(ship.ageTimer)
     }
 },100)
-
 
 // DOM EVENTS // 
 
