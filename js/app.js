@@ -1,6 +1,7 @@
 // console.log("sanity check")
 
 // DOM VARIABLES //
+
 //game display area
 let gameArea = document.querySelector(".main-game") 
 //modal
@@ -31,7 +32,8 @@ let supplyPerc = document.getElementById('supply-percent')
 let restPerc = document.getElementById('rest-percent')
 let funPerc = document.getElementById('entertainment-percent')
 
-// SHIP CLASS - Which is really just the Game
+
+// SHIP CLASS
 class TomaShip {
     //Ship has 3 types of "resources"
     constructor(name, age=0, supplies=30, rest=20, entertainment=25){
@@ -51,7 +53,8 @@ class TomaShip {
 
     setName(){
         let shipName = prompt("What is the name of your ship, Captain?")
-        nameBanner.innerText = `SS ${shipName.toUpperCase()}`   
+        this.name = shipName;
+        nameBanner.innerText = `SS ${this.name.toUpperCase()}`   
     }
 
     addSupplies(){
@@ -61,13 +64,11 @@ class TomaShip {
             this.supplies += 5
             this.animateStatInc()
         } else {return} 
-        
     }
 
     addRest(){
         if(this.rest + 3 > 20){this.rest = 20}
         if(this.rest <= 0){this.rest = 0}
-
         if(this.rest < 20) {
             this.rest += 3
             this.animateFlyOut()
@@ -77,7 +78,6 @@ class TomaShip {
     addEntertainment() {
         if(this.entertainment + 3 > 25){this.entertainment = 25}
         if(this.entertainment <= 0){this.entertainment = 0}
-
         if(this.entertainment < 25) {
             this.entertainment += 3
             this.animateRoll()
@@ -195,12 +195,10 @@ class TomaShip {
 
     checkAge(){
         if(this.age >= 30 && this.age <= 75){
-            console.log("30-75") 
-        }//transform ship
-        if(this.age > 75 && this.age < 120){console.log("76 - 119")}//transform ship}
-        if(this.age === 12) {
-            console.log("120")
-
+            playerShip.style.filter = "contrast(5)"
+        }
+        if(this.age > 7 && this.age < 12){
+            playerShip.style.filter = "invert(1)"
         }
     }
 
