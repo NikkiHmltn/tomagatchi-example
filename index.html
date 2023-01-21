@@ -9,19 +9,43 @@
     <script defer src="js/app.js"></script>
 </head>
 <body>
-    <header>
-        <div id="music-controls">
-            <audio autoplay controls loop>
-                <source src='./assets/music/Smooth Sailing.mp3' type="audio/mpeg">
-                Your browser does not support this audio. 
-            </audio>
+    <section class="is-hidden modal">
+        <div>
+            <div id="modal-content">
+                <div>
+                    <span>Welcome, Captain, to your new cruiser!</span>
+                    <p>Thank you for allowing the VanRyder brand to be a part of your family. Before you get started, here's a few key points to help you pilot the state-of-the-art T0M4-b12 cruiser, or TOMA, for short. </p>
+                </div>
+                <ol>
+                    <li>
+                        Keep a good stash of spare parts (sold separately) on board in case you run into any troubles in the vast, empty expanse of space!* 
+                    </li>
+                    <li>
+                        Every good Captain knows when to give their crew a break from time to time! Go on shore leave to rest up and prevent mutanity. 
+                    </li>
+                    <li>
+                        While TOMA is our top of the line spacecraft, stress tests indicate you should not, under any circumstances, rapidly boost the craft in a circular motion.
+                    </li>
+                </ol>
+                <p><b>*VanRyder is not responsible for any loss of cargo, space raids, astroid showers, mutanity, or irradiation damage to any craft, crew, or passenger.</b></p>
+            </div>
+            <div id="modal-close">
+                <input type="button" value="Understood">
+            </div>
         </div>
-    </header>
-    <section>
-        <aside id="">
-             <div id="player-ship"></div>
+
+    </section>
+    <section class="main-game">
+        <aside>
+            <div id="name-banner"></div>
+            <div id="player-ship"></div>
+            <span id="age-text">Years in Service: <p id="age"></p></span>
         </aside>
         <aside>
+            <div id="beginning-options">
+                <input type="button" id="button-instruct" value="T0M4-b12 Instruction Manual">
+                <input type="button" id="button-start" value="Depart for the Stars&#10;&#13;(START)">
+            </div>
             <div>
                 <fieldset>
                     <legend>Orders, Captain?</legend>
@@ -43,9 +67,23 @@
                                 <div id="entertainment-bar" class="stat-health"></div>
                             </div>
                         </div>
-                    </div>
+                        <div id="statbar-percent">
+                            <div id="supply-percent"></div>
+                            <div id="rest-percent"></div>
 
+                            <div id="entertainment-percent"></div>
+                        </div>
+                    </div>
                 </fieldset>
+                <div id="music-container">
+                    <div id="music-controls">
+                        <p>Captain, we found a sound-byte on the ship.</p>
+                        <audio autoplay controls loop>
+                            <source src='./assets/music/Smooth Sailing.mp3' type="audio/mpeg">
+                            Your browser does not support this audio. 
+                        </audio>
+                    </div>
+                </div>
             </div>
         </aside>
     </section>
