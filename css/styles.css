@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/* GLOBAL TAGS */
+
 html {
     background-image: url(../assets/images/Purple_Nebula_01-1024x1024.png);
     animation: fadeStars 6s infinite;
@@ -32,6 +34,61 @@ h3 {
     font-family: 'Press Start 2P', cursive;
 }
 
+fieldset {
+    margin: 4%;
+    padding: 1% 1% 1% 10%;
+    width: 600px;
+    border-color: aqua;
+    border-radius: 10%;
+    box-shadow: 0 0 10px aqua;
+    background-color: rgba(158, 152, 152, 0.25);
+}
+
+legend {
+    color: white;
+    font-size: 30px;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: rgb(44, 38, 38);
+    letter-spacing: -.5px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* GLOBAL BUTTON STYLE */
+
+input[type='button'] {
+    height: 50px;
+    padding: 3%;
+    margin: 5%;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 5px 4px black;
+}
+
+/* PLAYER SHIP CSS */
+
+#age-text {
+    color: rgb(255, 255, 255);
+    font-size: 19px;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: rgb(44, 38, 38);
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 10%;
+    text-align: center;
+}
+
+#name-banner {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    margin: 0 auto;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: rgb(44, 38, 38);
+    letter-spacing: -.5px;
+    font-family: 'Press Start 2P', cursive;
+    margin: 2%;
+    text-align: center;
+}
+
 #player-ship {
     background-image: url(../assets/images/clipart2761027.png);
     height: 350px;
@@ -40,6 +97,20 @@ h3 {
     margin-left: 15%;
     animation: hoverShip 4s infinite;
 }
+
+#player-ship.animateStatInc {
+    animation: hoverShip 4s infinite, incStats .1s 3;
+}
+
+#player-ship.animateRoll {
+    animation: hoverShip 4s infinite, animateRoll .5s linear
+}
+
+#player-ship.animateFlyOut {
+    animation: flyOutToIn 2.5s linear;
+}
+
+/* MUSIC */
 
 #music-container {
     display: flex;
@@ -57,100 +128,7 @@ h3 {
     margin: 2%;
 }
 
-#name-banner {
-    color: rgb(255, 255, 255);
-    font-size: 30px;
-    margin: 0 auto;
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: rgb(44, 38, 38);
-    letter-spacing: -.5px;
-    font-family: 'Press Start 2P', cursive;
-    margin: 2%;
-    text-align: center;
-}
-
-fieldset {
-    margin: 4%;
-    padding: 1% 1% 1% 10%;
-    width: 600px;
-    border-color: aqua;
-    border-radius: 10%;
-    box-shadow: 0 0 10px aqua;
-    background-color: rgba(158, 152, 152, 0.25);
-}
-
-#fieldset-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-input[type='button'] {
-    height: 50px;
-    padding: 3%;
-    margin: 5%;
-    font-size: 16px;
-    font-weight: 500;
-    font-family: 'Press Start 2P', cursive;
-    box-shadow: 5px 4px black;
-}
-#beginning-options > input[type='button'] {
-    padding: 1% ;
-    margin: 1%;
-    font-size: 12px;
-}
-
-input[type='button']:hover {
-    box-shadow: 0px 0px black;
-    background-color: grey;
-}
-
-
-#stat-container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    width: 33.3%;
-}
-
-.modal {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: wheat;
-    height: 600px;
-    width: 500px;
-    margin: 0 auto;
-    margin-top: 5%;
-    text-align: left;
-    border-radius: 4%;
-}
-
-#modal-content {
-    padding: 4%;
-}
-
-#modal-close{
-    margin: 0 auto;
-
-}
-
-
-#age-text {
-    color: rgb(255, 255, 255);
-    font-size: 19px;
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: rgb(44, 38, 38);
-    font-family: 'Press Start 2P', cursive;
-    margin-top: 10%;
-    text-align: center;
-}
-
-.is-hidden {
-    display: none;
-    opacity: 0;
-}
+/* PLAYER UI (GAME CONTROLS) */
 
 .statbar{
     width: 200px;
@@ -192,14 +170,24 @@ input[type='button']:hover {
     height: 225px;
 }
 
-legend {
-    color: white;
-    font-size: 30px;
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: rgb(44, 38, 38);
-    letter-spacing: -.5px;
-    font-family: 'Press Start 2P', cursive;
+#fieldset-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
+
+
+#beginning-options > input[type='button'] {
+    padding: 1% ;
+    margin: 1%;
+    font-size: 12px;
+}
+
+input[type='button']:hover {
+    box-shadow: 0px 0px black;
+    background-color: grey;
+}
+
 #button-container {
     display: flex;
     align-items: center;
@@ -209,16 +197,41 @@ legend {
     height: 150px;
 }
 
-#player-ship.animateStatInc {
-    animation: hoverShip 4s infinite, incStats .1s 3;
+#stat-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 33.3%;
 }
 
-#player-ship.animateRoll {
-    animation: hoverShip 4s infinite, animateRoll .5s linear
+/* INSTRUCTIONS */
+
+.modal {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: wheat;
+    height: 600px;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-align: left;
+    border-radius: 4%;
 }
 
-#player-ship.animateFlyOut {
-    animation: flyOutToIn 2.5s linear;
+#modal-content {
+    padding: 4%;
+}
+
+#modal-close{
+    margin: 0 auto;
+
+}
+
+.is-hidden {
+    display: none;
+    opacity: 0;
 }
 
 #beginning-options {

@@ -9,13 +9,16 @@
     <script defer src="js/app.js"></script>
 </head>
 <body>
+    <!-- INSTRUCTIONS MODAL START -->
     <section class="is-hidden modal">
         <div>
             <div id="modal-content">
+                <!-- MODAL TOP -->
                 <div>
                     <h3>Welcome, Captain, to your new cruiser!</h3>
                     <p>Thank you for allowing the VanRyder brand to be a part of your family. Before you get started, here's a few key points to help you pilot the state-of-the-art T0M4-b12 cruiser, or TOMA, for short. </p>
                 </div>
+                <!-- INSTRUCTIONS -->
                 <ol>
                     <li>
                         Keep a good stash of spare parts (sold separately) on board in case you run into any troubles in the vast, empty expanse of space!* 
@@ -34,18 +37,22 @@
             </div>
         </div>
     </section>
+    <!-- THE GAME BOARD -->
     <section class="main-game">
         <aside>
+            <!-- THE PLAYER SHIP WITH NAME/AGE -->
             <div id="name-banner"></div>
             <div id="player-ship"></div>
             <span id="age-text">Years in Service: <p id="age"></p></span>
         </aside>
+        <!-- BUTTONS PANEL -->
         <aside>
             <div id="beginning-options">
                 <input type="button" id="button-instruct" value="T0M4-b12 Instruction Manual">
                 <input type="button" id="button-start" value="Depart for the Stars&#10;&#13;(START)">
             </div>
             <div>
+                <!-- USER CONTROLS FOR SHIP RESOURCES -->
                 <fieldset>
                     <legend>Orders, Captain?</legend>
                     <div id="fieldset-container">
@@ -55,6 +62,7 @@
                             <input type="button" id="shoreleave" value="Take Shoreleave" />
                             <input type="button" id="barrelRoll" value="Do a Barrel Roll" />
                         </div>
+                        <!-- RESOURCE ADDITION BUTTONS -->
                         <div id="stat-container">
                             <div id="supply-stat" class="statbar">
                                 <div id="supply-bar" class="stat-health"></div>
@@ -66,21 +74,22 @@
                                 <div id="entertainment-bar" class="stat-health"></div>
                             </div>
                         </div>
+                        <!-- ACTIVE PERCENTAGES -->
                         <div id="statbar-percent">
                             <div id="supply-percent"></div>
                             <div id="rest-percent"></div>
-
                             <div id="entertainment-percent"></div>
                         </div>
                     </div>
                 </fieldset>
+                <!-- OPTIONAL MUSIC (MAKE SURE CONTROLS IS ALWAYS ON IF WE AUTOPLAY) -->
                 <div id="music-container">
                     <div id="music-controls">
                         <p>Captain, we found a sound-byte on the ship.</p>
                         <audio autoplay controls loop>
                             <source src='./assets/music/Smooth Sailing.mp3' type="audio/mpeg">
-                            Your browser does not support this audio. 
-                        </audio>
+                            Your browser does not support this audio. <!-- IF THE AUDIO DOESNT LOAD ON A USER'S BROWSER, THIS MESSAGE SHOWS INSTEAD -->
+                        </audio> 
                     </div>
                 </div>
             </div>

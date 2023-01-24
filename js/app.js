@@ -50,13 +50,13 @@ class TomaShip {
         this.funTimer;
         this.ageTimer;
     }
-
+    // Ask and set player's ship name
     setName(){
         let shipName = prompt("What is the name of your ship, Captain?")
         this.name = shipName;
         nameBanner.innerText = `SS ${this.name.toUpperCase()}`   
     }
-
+    // Increase supplies and keep within range
     addSupplies(){
         if(this.supplies + 5 > 30){this.supplies = 30}
         if(this.supplies <= 0){this.supplies = 0}
@@ -65,7 +65,7 @@ class TomaShip {
             this.animateStatInc()
         } else {return} 
     }
-
+    // Increase rest and keep within range
     addRest(){
         if(this.rest + 3 > 20){this.rest = 20}
         if(this.rest <= 0){this.rest = 0}
@@ -74,7 +74,7 @@ class TomaShip {
             this.animateFlyOut()
         } else {return}
     }
-
+    // Increase entertainment (fun) and keep within range
     addEntertainment() {
         if(this.entertainment + 3 > 25){this.entertainment = 25}
         if(this.entertainment <= 0){this.entertainment = 0}
@@ -83,13 +83,12 @@ class TomaShip {
             this.animateRoll()
         } else {return}
     }
-
+    //Game starts by starting the timers
     startGame(){
         this.gameover = false;
-        console.log(this)
         this.startTimers()
     }
-
+    //When the game is done, stop all timers passed in
     endGame(timerInt){
         if(this.gameover === true){
             clearInterval(timerInt)
@@ -97,7 +96,7 @@ class TomaShip {
     }
 
     startTimers(){
-        //user activates this onClick of 'start' button after startGame runs (ideally)
+        //Activated by "startGame()"
         this.supplyTimer = setInterval(()=>{
             this.supplies -= 3
         }, 1000)
@@ -111,11 +110,12 @@ class TomaShip {
             this.age += 1
         }, 1500)
     }
-
-    checkSupplies(){
+    //This is certainly one way to do styling. What would be a way you could do it differently? 
+    checkSupplies(){ 
         let supplyPercentage = Math.floor(this.supplies/30*100) 
         supplyHealth.style.width = `${supplyPercentage}%`
         supplyPerc.innerText = `${supplyPercentage}%`
+        //Green bar
         if( supplyPercentage > 75){ 
             supplyBox.style.border = '2px solid green'
             supplyBox.style.boxShadow = '0 0 10px green'
@@ -123,6 +123,7 @@ class TomaShip {
             supplyPerc.classList.remove(...supplyPerc.classList)
             supplyPerc.classList.add('good-health')
         }
+        //Yellow bar
         if( supplyPercentage <= 75 && supplyPercentage > 30){ 
             supplyBox.style.border = '2px solid yellow'
             supplyBox.style.boxShadow = '0 0 10px yellow'
@@ -130,6 +131,7 @@ class TomaShip {
             supplyPerc.classList.remove(...supplyPerc.classList)
             supplyPerc.classList.add('okay-health')
         }
+        //Red bar
         if( supplyPercentage <= 30 && supplyPercentage >= 0){ 
             supplyBox.style.border = '2px solid red'
             supplyBox.style.boxShadow = '0 0 10px red'
@@ -143,6 +145,7 @@ class TomaShip {
         let restPercentage = Math.floor(this.rest/20*100)
         restHealth.style.width = `${restPercentage}%`
         restPerc.innerText = `${restPercentage}%`
+        //Green bar
         if( restPercentage > 75){ 
             restBox.style.border = '2px solid green'
             restBox.style.boxShadow = '0 0 10px green'
@@ -150,6 +153,7 @@ class TomaShip {
             restPerc.classList.remove(...restPerc.classList)
             restPerc.classList.add('good-health')
         }
+        //Yellow bar
         if( restPercentage <= 75 && restPercentage > 30){ 
             restBox.style.border = '2px solid yellow'
             restBox.style.boxShadow = '0 0 10px yellow'
@@ -157,6 +161,7 @@ class TomaShip {
             restPerc.classList.remove(...restPerc.classList)
             restPerc.classList.add('okay-health')
         }
+        //Yelow bar
         if( restPercentage <= 30 && restPercentage >= 0){
             restBox.style.border = '2px solid red'
             restBox.style.boxShadow = '0 0 10px red'
@@ -170,6 +175,7 @@ class TomaShip {
         let funPercentage = Math.floor(this.entertainment/25*100)
         funHealth.style.width = `${funPercentage}%`
         funPerc.innerText = `${funPercentage}%`
+        //Green bar
         if( funPercentage > 75){ 
             funBox.style.border = '2px solid green'
             funBox.style.boxShadow = '0 0 10px green'
@@ -177,6 +183,7 @@ class TomaShip {
             funPerc.classList.remove(...funPerc.classList)
             funPerc.classList.add('good-health')
         }
+        //Yellow bar
         if( funPercentage <= 75 && funPercentage > 30){ 
             funBox.style.border = '2px solid yellow'
             funBox.style.boxShadow = '0 0 10px yellow'
@@ -184,6 +191,7 @@ class TomaShip {
             funPerc.classList.remove(...funPerc.classList)
             funPerc.classList.add('okay-health')
         }
+        //Red bar
         if( funPercentage <= 30 && funPercentage >= 0){
             funBox.style.border = '2px solid red'
             funBox.style.boxShadow = '0 0 10px red'
@@ -193,6 +201,7 @@ class TomaShip {
         }
     }
 
+    // Alters ship appearance based on age
     checkAge(){
         if(this.age >= 30 && this.age <= 75){
             playerShip.style.filter = "contrast(5)"
@@ -201,7 +210,7 @@ class TomaShip {
             playerShip.style.filter = "invert(1)"
         }
     }
-
+    //Displays ship vitals for the user to see
     displayVitals(){
         this.checkSupplies()
         this.checkRest()
@@ -211,7 +220,7 @@ class TomaShip {
     }
 
     checkLoss(){
-        //If entertainment|sleep|supply === 0, GAME OVER - WIN
+        //If entertainment|sleep|supply === 0, GAME OVER - LOSS
         //If age === 120, GAME OVER - WIN
         if(this.entertainment <= 0 || this.rest <= 0 || this.supplies <= 0){
             displayLossMsg()
@@ -221,6 +230,8 @@ class TomaShip {
             return true;
         }
     }
+
+    //ANIMATIONS
 
     animateStatInc(){
         playerShip.classList.add('animateStatInc')
@@ -239,10 +250,14 @@ class TomaShip {
     animateFlyOut(){
         playerShip.classList.add('animateFlyOut')
         shipAudio.play()
+        // RESET ANIMATIONS AFTER COMPLETION // 
         playerShip.addEventListener('animationend', ()=> {playerShip.classList.remove('animateFlyOut')})
     }
 }
 
+// GLOBAL FUNCTIONS //
+
+//Instructions modal display/hide
 const displayInstructions = () => {
     gameArea.classList.add('is-hidden')
     modalSection.classList.remove('is-hidden')
@@ -253,6 +268,7 @@ const hideInstructions = () => {
     gameArea.classList.remove('is-hidden')
 }
 
+// Game Over display messages
 const displayLossMsg = () => {
     ship.loss = true;
     if(ship.loss){
@@ -269,7 +285,9 @@ const displayWinMsg = () => {
     ship.win = false;
 }
 
+//Create new instance of ship after the Class
 let ship = new TomaShip()
+//Get the ship's name and then starts the game for us
 ship.setName()
 
 //CONSTANTLY CHECKS FOR GAME STATUS UPDATES
@@ -288,7 +306,7 @@ const checkGameStats = setInterval(()=>{
 // DOM EVENTS // 
 
 //resource buttons
-supplyBtn.addEventListener('click', ship.addSupplies.bind(ship))
+supplyBtn.addEventListener('click', ship.addSupplies.bind(ship)) //if we don't bind 'ship' here, 'this' inside the Class object turns into the element we put the event listener on! To retain the context of the ship object using 'this' we must bind in this case.
 shoreBtn.addEventListener('click', ship.addRest.bind(ship))
 rollBtn.addEventListener('click', ship.addEntertainment.bind(ship))
 
