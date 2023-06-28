@@ -27,6 +27,22 @@
 - HTML
 - CSS
 
+## Installation Instructions
+
+### Method 1 (Live)
+
+- Simply click on the "Live" link in the "Links" section above the wireframes.
+
+### Method 2 (Cloning)
+
+- `Fork` and `Clone` this repo to your own account and down to your machine.
+- Open up the `index.html` file and either: 
+    - Open the html file with `Live Link`, a VSCode extension.
+    > #### OR 
+    - Copy entire file path and paste to your browser's URL bar to instally run and play!
+
+It's that easy!  
+
 ## Future Updates / Bug Fixes
 
 - [ ] Complex checks and balance system with resource addition
